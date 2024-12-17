@@ -2,27 +2,45 @@
 export default {
     data() {
         return {
+          counterStyle:'danger',
             count: 0, //This is call Data binding & Also call state
+            isButtonDisabled: false,
+            objectOfAttrs: {
+                id: 'container',
+                class: 'wrapper',
+                style: 'background-color:green',
+              },
 
         }
     },
     methods: {
         increase() {
             this.count++
+            if(this.count > 10) {
+                this.counterStyle = 'success',
+                this.isButtonDisabled =true
+            } 
         },
         decrease() {
             this.count--
-        }
+            if(this.count < 5) {
+                this.counterStyle = 'normal',
+                this.isButtonDisabled =false
+            } 
+            if(this.count < 0) {
+                this.counterStyle = 'danger'
+            }
     }
+}
 }
 </script>
 
 <template>
     <main class="container">
-      <h1>Counter</h1>
+      <H2 v-bind="objectOfAttrs">Counter</H2>
       <div class="counter-wrapper">
-        <button @click="increase">INCREASE </button>
-       <H2>{{ count }}</H2>
+        <button @click="increase" :disabled="isButtonDisabled">INCREASE </button>
+       <H2 v-bind:class="counterStyle">{{ count }}</H2>
         <button @click="decrease">DECREASE</button>
       </div>
     </main>
@@ -33,6 +51,15 @@ export default {
 main {
   text-align: center;
   margin-top: 50px;
+}
+.normal {
+  color: #007f96;
+}
+.danger {
+  color: #e94848;
+}
+.success {
+  color: #00b679;
 }
 h1 {
   font-size: 3rem;
