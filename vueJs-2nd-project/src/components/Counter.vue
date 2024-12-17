@@ -1,11 +1,55 @@
-<script>
+<script >
+export default {
+    data() {
+        return {
+            count: 0, //This is call Data binding & Also call state
 
+        }
+    },
+    methods: {
+        increase() {
+            this.count++
+        },
+        decrease() {
+            this.count--
+        }
+    }
+}
 </script>
 
 <template>
-<h1>COUNTER</h1>
+    <main class="container">
+      <h1>Counter</h1>
+      <div class="counter-wrapper">
+        <button @click="increase">INCREASE </button>
+       <H2>{{ count }}</H2>
+        <button @click="decrease">DECREASE</button>
+      </div>
+    </main>
+  
 </template>
 
-<style>
-
+<style scoped>
+main {
+  text-align: center;
+  margin-top: 50px;
+}
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.counter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+button {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
+}
 </style>

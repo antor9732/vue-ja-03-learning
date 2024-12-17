@@ -14,15 +14,15 @@
 <style scoped>
 h1{
     text-decoration: underline;
-    color: aliceblue;
+    color: #00404b;
 }
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 20px;
     margin: 0px;
-    background-color: royalblue;
+    background-color: #75eaff;
 }
 header nav{
    display: flex;
