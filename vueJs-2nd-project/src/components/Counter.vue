@@ -5,11 +5,6 @@ export default {
           counterStyle:'danger',
             count: 0, //This is call Data binding & Also call state
             isButtonDisabled: false,
-            objectOfAttrs: {
-                id: 'container',
-                class: 'wrapper',
-                style: 'background-color:green',
-              },
 
         }
     },
@@ -27,11 +22,12 @@ export default {
                 this.counterStyle = 'normal',
                 this.isButtonDisabled =false
             } 
-            if(this.count < 0) {
-                this.counterStyle = 'danger'
-            }
-    }
-}
+            
+    },
+    isDivisibleBy2(num){
+      return num%2==0
+    },
+},
 }
 </script>
 
@@ -40,7 +36,8 @@ export default {
       <H2 v-bind="objectOfAttrs">Counter</H2>
       <div class="counter-wrapper">
         <button @click="increase" :disabled="isButtonDisabled">INCREASE </button>
-       <H2 v-bind:class="counterStyle">{{ count }}</H2>
+      
+        <H2 v-bind:class="counterStyle">{{ isDivisibleBy2(count) }}</H2>
         <button @click="decrease">DECREASE</button>
       </div>
     </main>
