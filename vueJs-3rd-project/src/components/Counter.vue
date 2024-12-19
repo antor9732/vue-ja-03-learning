@@ -1,43 +1,55 @@
-<script >
+<script>
 export default {
-    data() {
-        return {
-            count: 0, // this is the data property
-            isActive: true,
-            hasError: true
-        }
+  data() {
+    return {
+      count: 0, // this is the data property
+      // isActive: true,
+      // hasError: true,
+      classObject: {
+        'default-heading': true,
+        "bg-danger": false,
+      },
+    };
+  },
+  methods: {
+    increase() {
+      this.count++;
+      if (this.count > 0) {
+        this.classObject["default-heading"] = false;
+        this.classObject["bg-danger"] = false;
+        // this.isActive = false;
+        // this.hasError = false;
+      }
     },
-    methods: {
-        increase() {
-            this.count++
-            if (this.count > 0) {
-                this.isActive = false
-                this.hasError = false
-            }
-        },
-        decrease() {
-            this.count--
-            if (this.count < 0) {
-                this.isActive = true
-                this.hasError = true
-            }
+    decrease() {
+      this.count--;
+      if (this.count < 0) {
+        this.classObject["default-heading"] = true;
+        this.classObject["bg-danger"] = true;
+        // this.isActive = true;
+        // this.hasError = true;
+      }
     },
-},
-}
+  },
+};
 </script>
 
 <template>
-    <main class="container">
-      <h1>Counter</h1>
-      <div class="counter-wrapper">
-        <button @click="increase">INCREASE </button>
-      
-        <h1 :class="{'default-heading': isActive, 'bg-danger' : hasError}">{{ (count) }}</h1>
+  <main class="container">
+    <h1>Counter</h1>
+    <div class="counter-wrapper">
+      <button @click="increase">INCREASE</button>
 
-        <button @click="decrease">DECREASE</button>
-      </div>
-    </main>
-  
+      <h1
+        class="static"
+       :class="classObject"
+      >
+        {{ count }}
+      </h1>
+
+      <button @click="decrease">DECREASE</button>
+    </div>
+  </main>
 </template>
 
 <style scoped>
@@ -46,9 +58,8 @@ main {
   margin-top: 50px;
 }
 
-h1{
+h1 {
   font-size: 3rem;
-  margin-bottom: 1rem;
 }
 .counter-wrapper {
   display: flex;
@@ -56,11 +67,17 @@ h1{
   align-items: center;
   gap: 1rem;
 }
-.default{
-    color: red;
+.default {
+  color: red;
 }
-.bg-danger{
-    background-color: royalblue;
+.bg-danger {
+  background-color: royalblue;
+}
+.static {
+  font-size: 3rem;
+  font-weight: bold;
+  align-items: center;
+  justify-items: center;
 }
 button {
   font-weight: bold;
