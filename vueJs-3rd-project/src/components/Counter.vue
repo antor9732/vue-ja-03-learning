@@ -3,30 +3,32 @@ export default {
   data() {
     return {
       count: 0, // this is the data property
-      // isActive: true,
+      isActive: false,
       // hasError: true,
-      classObject: {
-        'default-heading': true,
-        "bg-danger": false,
-      },
+      // classObject: {
+      //   'default-heading': true,
+      //   "bg-danger": false,
+      // },
+      activeClass: 'default-heading',
+      errorClass: 'bg-danger'
     };
   },
   methods: {
     increase() {
       this.count++;
       if (this.count > 0) {
-        this.classObject["default-heading"] = false;
-        this.classObject["bg-danger"] = false;
-        // this.isActive = false;
+        // this.classObject["default-heading"] = false;
+        // this.classObject["bg-danger"] = false;
+        this.isActive = false;
         // this.hasError = false;
       }
     },
     decrease() {
       this.count--;
       if (this.count < 0) {
-        this.classObject["default-heading"] = true;
-        this.classObject["bg-danger"] = true;
-        // this.isActive = true;
+        // this.classObject["default-heading"] = true;
+        // this.classObject["bg-danger"] = true;
+        this.isActive = true;
         // this.hasError = true;
       }
     },
@@ -42,7 +44,7 @@ export default {
 
       <h1
         class="static"
-       :class="classObject"
+       :class="[isActive ? 'default-heading' : 'bg-danger']"
       >
         {{ count }}
       </h1>
@@ -67,7 +69,7 @@ h1 {
   align-items: center;
   gap: 1rem;
 }
-.default {
+.default-heading {
   color: red;
 }
 .bg-danger {
