@@ -1,13 +1,15 @@
 <script>
-import Counter from '@/components/Counter.vue';
+// import Counter from '@/components/Counter.vue';
+import Accordion from '@/components/Accordion.vue';
 
 export default{
-  components:{ Counter },
+  components:{ Accordion },
 }
 </script>
 
 <template>
-  <Counter/>
+  <!-- <Counter/> -->
+  <Accordion/>
 </template>
 
 <style>

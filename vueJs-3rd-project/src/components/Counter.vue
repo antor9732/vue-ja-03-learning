@@ -9,7 +9,7 @@ export default {
       //   'default-heading': true,
       //   "bg-danger": false,
       // },
-      activeClass: 'default-heading',
+      // activeClass: 'default-heading',
       errorClass: 'bg-danger'
     };
   },
@@ -44,7 +44,7 @@ export default {
 
       <h1
         class="static"
-       :class="[isActive ? 'default-heading' : 'bg-danger']"
+       :class="[isActive ? 'default-heading' : '', errorClass]"
       >
         {{ count }}
       </h1>
