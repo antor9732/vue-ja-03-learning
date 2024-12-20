@@ -30,9 +30,18 @@ export default {
         // this.classObject["bg-danger"] = true;
         this.isActive = true;
         // this.hasError = true;
+      //   this.increase();
+      //   this.increase();
+      //   this.increase();
+      //   this.increase();
       }
     },
   },
+  mounted() {
+    this.increase() ;
+    this.increase() ;
+  },
+  
 };
 </script>
 
