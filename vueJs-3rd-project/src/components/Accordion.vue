@@ -1,4 +1,15 @@
 <template>
+  <div class="accordion" :class="$attrs.class">
+    <header>
+      <h3>Title</h3>
+      <button @click="toggleVisibility">{{ isVisible ? "-" : "+" }}</button>
+    </header>
+    <p class="content" :class="{ 'show-content': isVisible }">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias illum
+      accusantium alias rerum numquam est mollitia quisquam aut repellendus,
+      illo nam distinctio, quidem nisi repellat?
+    </p>
+  </div>
   <div class="accordion">
     <header>
       <h3>Title</h3>
@@ -68,5 +79,6 @@ export default {
 .accordion .show-content {
   display: block;
 }
+
 
 </style>
