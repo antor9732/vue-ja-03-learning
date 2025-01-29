@@ -45,18 +45,22 @@ export default {
 </style> -->
 
 <script>
-import Header from './components/Header.vue';
+import Form from './components/Form.vue';
+
+// import Header from './components/Header.vue';
 
 
 export default {
   components: {
-    Header,
+    // Header,
+    Form,
   },
 }
 </script>
 
 <template>
-  <Header />
+  <!-- <Header /> -->
+   <Form />
 </template>
 
 <style scoped></style>
