@@ -46,21 +46,24 @@ export default {
 
 <script>
 import Form from './components/Form.vue';
-
-// import Header from './components/Header.vue';
+import MultiStepForm from './components/MultiStepForm.vue';
+import Header from './components/Header.vue';
 
 
 export default {
   components: {
-    // Header,
+    Header,
     Form,
+    MultiStepForm,
   },
 }
 </script>
 
 <template>
   <!-- <Header /> -->
-   <Form />
+   <!-- <Form /> -->
+    <MultiStepForm/>
+
 </template>
 
 <style scoped></style>
