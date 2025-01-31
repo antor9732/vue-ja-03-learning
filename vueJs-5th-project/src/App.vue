@@ -41,20 +41,23 @@ export default {
 </template>
 <style scoped></style> -->
 <script>
-import Form from './components/Form.vue';
-import MultiStepForm from './components/MultiStepForm.vue';
-import Header from './components/Header.vue';
+import Form from './components/Form.vue'
+import MultiStepForm from './components/MultiStepForm.vue'
+import Header from './components/Header.vue'
+import ApiData from './components/ApiData.vue'
 
 export default {
   components: {
     Header,
     Form,
     MultiStepForm,
+    ApiData,
   },
   data() {
     return {
-      awesome: true,
-      vShowState: true,
+      awesome: false,
+      vShowState: false,
+      MultiForm: false,
     };
   },
   methods: {
@@ -65,7 +68,8 @@ export default {
 }
 </script>
 
-<template>
+<template class="main-container">
+  <ApiData />
   <Header v-show="awesome"/>
   <button @click="ToggleHeader">Toggle Header</button>
   <br>
@@ -77,8 +81,17 @@ export default {
    <br>
    <br>
    <br>
-    <MultiStepForm/> 
+    <MultiStepForm v-if="MultiForm"/> 
 
 </template>
 
-<style scoped></style>
+<style>
+.main-container {
+  width: 100%;
+  height: 100%;
+  background-color: #868686;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
