@@ -13,6 +13,10 @@ export default {
       this.isUserLoggedIn = false;
     },
   },
+  mounted() {
+    // this.isUserLoggedIn = !this.isUserLoggedIn;
+    console.log('This component is mounted')
+  }
 };
 </script>
 

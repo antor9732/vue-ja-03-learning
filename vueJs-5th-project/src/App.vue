@@ -39,16 +39,11 @@ export default {
   <button @click="toggle('')">TOGGLE to None</button>
 
 </template>
-
-<style scoped>
-
-</style> -->
-
+<style scoped></style> -->
 <script>
 import Form from './components/Form.vue';
 import MultiStepForm from './components/MultiStepForm.vue';
 import Header from './components/Header.vue';
-
 
 export default {
   components: {
@@ -56,13 +51,33 @@ export default {
     Form,
     MultiStepForm,
   },
+  data() {
+    return {
+      awesome: true,
+      vShowState: true,
+    };
+  },
+  methods: {
+    ToggleHeader() {
+      this.awesome = !this.awesome;
+    }
+  },
 }
 </script>
 
 <template>
-  <!-- <Header /> -->
-   <!-- <Form /> -->
-    <MultiStepForm/>
+  <Header v-show="awesome"/>
+  <button @click="ToggleHeader">Toggle Header</button>
+  <br>
+  <br>
+  <br>
+  <br>
+   <Form v-if="vShowState"/>
+   <br>
+   <br>
+   <br>
+   <br>
+    <MultiStepForm/> 
 
 </template>
 
